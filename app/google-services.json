@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "782221351222",
+    "firebase_url": "https://would-you-rather-42553.firebaseio.com",
+    "project_id": "would-you-rather-42553",
+    "storage_bucket": "would-you-rather-42553.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:782221351222:android:600b121d6db94889afbb97",
+        "android_client_info": {
+          "package_name": "sg.edu.rp.pd.wouldyourather"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "782221351222-k6g2bkcr0lrlo7l8e0p66lgu671sf6r8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sg.edu.rp.pd.wouldyourather",
+            "certificate_hash": "8df78990e44221d40094af9762607449c28cc658"
+          }
+        },
+        {
+          "client_id": "782221351222-edf7rscnge1lqt832sviva06k3q0tf45.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8WifG9Lqh1BhxlgtbCBj7csssk2HsPEk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "782221351222-edf7rscnge1lqt832sviva06k3q0tf45.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

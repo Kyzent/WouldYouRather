@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Would You Rather</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="email">Email</string>
+    <string name="login_redirector">Already Registered? Login Here</string>
+    <string name="register_redirector">Don\'t have an account? Register here</string>
+    <string name="red">RED</string>
+    <string name="blue">BLUE</string>
+    <string name="black">OR</string>
+    <string name="submit">Submit</string>
+    <string name="option1">Enter Your First Option Here</string>
+    <string name="option2">Enter Your Second Option Here</string>
+    <string name="next">NEXT</string>
+</resources>

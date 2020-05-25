@@ -1,0 +1,2 @@
+rootProject.name='Would You Rather'
+include ':app'

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CreateActivity">
+
+
+    <EditText
+        android:id="@+id/etRed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="#b71c1c"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/option1"
+        android:inputType="textMultiLine"
+        android:textColorHint="#FFF"
+        android:textColor="#FFF"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:text="@string/submit"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/etBlue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="#448aff"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/option2"
+        android:inputType="textMultiLine"
+        android:textColorHint="#FFF"
+        android:textColor="#FFF"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+</LinearLayout>
