@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -28,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_login);
 
         etName = findViewById(R.id.etUsername);
@@ -50,6 +53,37 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email = etEmail.getText().toString().trim();
                 String password = etPassword.getText().toString().trim();
+                tvRegister.setEnabled(false);
+                btnLogin.setEnabled(false);
+                etEmail.setEnabled(false);
+                etPassword.setEnabled(false);
+
+                if (TextUtils.isEmpty(email)) {
+                    etEmail.setError("Email is required");
+                    etEmail.setEnabled(true);
+                    etPassword.setEnabled(true);
+                    btnLogin.setEnabled(true);
+                    tvRegister.setEnabled(true);
+                    return;
+                }
+
+                if (TextUtils.isEmpty(password)) {
+                    etPassword.setError("Password is required");
+                    etEmail.setEnabled(true);
+                    etPassword.setEnabled(true);
+                    btnLogin.setEnabled(true);
+                    tvRegister.setEnabled(true);
+                    return;
+                }
+
+                if (password.length() < 6) {
+                    etPassword.setError("Password must contain more than 5 characters");
+                    etEmail.setEnabled(true);
+                    etPassword.setEnabled(true);
+                    btnLogin.setEnabled(true);
+                    tvRegister.setEnabled(true);
+                    return;
+                }
 
                 progressBar.setVisibility(View.VISIBLE);
 
@@ -63,6 +97,10 @@ public class LoginActivity extends AppCompatActivity {
                         } else {
                             Toast.makeText(LoginActivity.this, "Error! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.INVISIBLE);
+                            etEmail.setEnabled(true);
+                            etPassword.setEnabled(true);
+                            tvRegister.setEnabled(true);
+                            btnLogin.setEnabled(true);
                         }
                     }
                 });

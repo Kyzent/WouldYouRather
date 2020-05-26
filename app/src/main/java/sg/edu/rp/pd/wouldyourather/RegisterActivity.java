@@ -42,6 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_register);
 
         etUsername = findViewById(R.id.etUsername);
@@ -68,29 +69,69 @@ public class RegisterActivity extends AppCompatActivity {
                 final String email = etEmail.getText().toString().trim();
                 String password = etPassword.getText().toString().trim();
                 final String username = etUsername.getText().toString().trim();
+                tvLogin.setEnabled(false);
+                btnRegister.setEnabled(false);
+                etUsername.setEnabled(false);
+                etEmail.setEnabled(false);
+                etPassword.setEnabled(false);
 
                 if (TextUtils.isEmpty(email)) {
                     etEmail.setError("Email is required");
+                    tvLogin.setEnabled(true);
+                    btnRegister.setEnabled(true);
+                    etUsername.setEnabled(true);
+                    etEmail.setEnabled(true);
+                    etPassword.setEnabled(true);
                     return;
                 }
 
                 if (TextUtils.isEmpty(password)) {
                     etPassword.setError("Password is required");
+                    tvLogin.setEnabled(true);
+                    btnRegister.setEnabled(true);
+                    etUsername.setEnabled(true);
+                    etEmail.setEnabled(true);
+                    etPassword.setEnabled(true);
                     return;
                 }
 
                 if (TextUtils.isEmpty(username)) {
                     etUsername.setError("Display name is required");
+                    tvLogin.setEnabled(true);
+                    btnRegister.setEnabled(true);
+                    etUsername.setEnabled(true);
+                    etEmail.setEnabled(true);
+                    etPassword.setEnabled(true);
                     return;
                 }
 
                 if (username.length() < 6) {
-                    etUsername.setError("Display name must contain more than 5 characters");
+                    etUsername.setError("Username must contain more than 5 characters");
+                    tvLogin.setEnabled(true);
+                    btnRegister.setEnabled(true);
+                    etUsername.setEnabled(true);
+                    etEmail.setEnabled(true);
+                    etPassword.setEnabled(true);
+                    return;
+                }
+
+                if (username.length() > 12) {
+                    etUsername.setError("Username cannot contain more than 12 characters");
+                    tvLogin.setEnabled(true);
+                    btnRegister.setEnabled(true);
+                    etUsername.setEnabled(true);
+                    etEmail.setEnabled(true);
+                    etPassword.setEnabled(true);
                     return;
                 }
 
                 if (password.length() < 6) {
                     etPassword.setError("Password must contain more than 5 characters");
+                    tvLogin.setEnabled(true);
+                    btnRegister.setEnabled(true);
+                    etUsername.setEnabled(true);
+                    etEmail.setEnabled(true);
+                    etPassword.setEnabled(true);
                     return;
                 }
 
@@ -121,6 +162,12 @@ public class RegisterActivity extends AppCompatActivity {
                             finish();
                         } else {
                             Toast.makeText(RegisterActivity.this, "Error!" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            tvLogin.setEnabled(true);
+                            btnRegister.setEnabled(true);
+                            etUsername.setEnabled(true);
+                            etEmail.setEnabled(true);
+                            etPassword.setEnabled(true);
+                            progressBar.setVisibility(View.INVISIBLE);
                         }
                     }
                 });

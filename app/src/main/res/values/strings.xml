@@ -6,8 +6,8 @@
     <string name="password">Password</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="email">Email</string>
-    <string name="login_redirector">Already Registered? Login Here</string>
-    <string name="register_redirector">Don\'t have an account? Register here</string>
+    <string name="login_redirector">Login Here</string>
+    <string name="register_redirector">Create An Account</string>
     <string name="red">RED</string>
     <string name="blue">BLUE</string>
     <string name="black">OR</string>

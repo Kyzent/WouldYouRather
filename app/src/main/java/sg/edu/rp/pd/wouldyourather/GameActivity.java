@@ -53,6 +53,7 @@ public class GameActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_game);
 
         random = new Random();
@@ -65,6 +66,8 @@ public class GameActivity extends AppCompatActivity {
         tvBlack = findViewById(R.id.tvBlack);
 
         tvBlack.setEnabled(false);
+        tvRed.setEnabled(false);
+        tvBlue.setEnabled(false);
 
         tvRed.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,6 +147,8 @@ public class GameActivity extends AppCompatActivity {
                     tvRed.setText(red);
                     tvBlue.setText(blue);
                     textFreezer = true;
+                    tvRed.setEnabled(true);
+                    tvBlue.setEnabled(true);
                 }
             }
         });
@@ -168,6 +173,7 @@ public class GameActivity extends AppCompatActivity {
         Intent intent = getIntent();
         finish();
         startActivity(intent);
+        overridePendingTransition(0, 0);
     }
 
 }

@@ -1,11 +1,14 @@
 package sg.edu.rp.pd.wouldyourather;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,7 +23,8 @@ import javax.annotation.Nullable;
 public class MainActivity extends AppCompatActivity {
 
     TextView tvUserIdentifier;
-    Button btnLogout, btnPlay, btnCreate;
+    Button btnPlay, btnCreate;
+    ImageButton btnLogout;
 
     FirebaseAuth fbAuth;
     FirebaseFirestore fbFirestore;
@@ -29,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
 
         tvUserIdentifier = findViewById(R.id.tvUserIdentifier);
@@ -45,16 +50,32 @@ public class MainActivity extends AppCompatActivity {
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
-                tvUserIdentifier.setText("Welcome! " + documentSnapshot.getString("Username"));
+                tvUserIdentifier.setText(documentSnapshot.getString("Username"));
             }
         });
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-                finish();
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+                alertDialogBuilder
+                        .setMessage("Are You Sure You Want To Logout?")
+                        .setCancelable(false)
+                        .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                FirebaseAuth.getInstance().signOut();
+                                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        });
+                alertDialogBuilder.show();
             }
         });
 
